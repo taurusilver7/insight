@@ -44,7 +44,7 @@ yarn dev (local dev server)
 
 ## Build
 
-Add the dependencies & dev-dependencies to the api.
+Add the dependencies & dev-dependencies to the api. Create a typescript configuration to enable compiler options & strict compilation features.
 
 ## Running via Docker
 
