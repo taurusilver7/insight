@@ -46,6 +46,10 @@ yarn dev (local dev server)
 
 Add the dependencies & dev-dependencies to the api. Create a typescript configuration to enable compiler options & strict compilation features.
 
+Create app & index server files in src directory. Initiate a starter server in app with base middlewares. Create a server listener in index.
+
+Create a development server script to watch src directory & run the server with nodemon. Since ts-node was not a globally installed dependency, modify the script to suit the requirement.
+
 ## Running via Docker
 
 To run Bookie via Docker, set the `DB_HOST` environment variable to `"mysql"` in the `.env` file. Then run the following command: `docker compose up --build`
