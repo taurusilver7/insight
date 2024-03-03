@@ -1,4 +1,4 @@
-# INSIGHT
+# INSIGHT - Books & Authors
 
 A Secured, CRUD, RESTful API to manage books, authors (bio) for the registered users. It could be used as an api for a library rental feature.
 
@@ -33,6 +33,14 @@ yarn dev (local dev server)
 3. Install dependencies & run migrations `yarn install && yarn migrate`
 4. Ready to boot the server with `yarn dev`
 5. Acess the REST api endpoint at url `http://localhost:3000` or the port you specified at `.env`
+
+## Stack
+
+-  Typescript
+-  TypeORM
+-  MySQL
+-  JWT
+-  Class Validator
 
 ## Build
 
