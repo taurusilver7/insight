@@ -50,6 +50,10 @@ Create app & index server files in src directory. Initiate a starter server in a
 
 Create a development server script to watch src directory & run the server with nodemon. Since ts-node was not a globally installed dependency, modify the script to suit the requirement.
 
+Optional - Add jest & supertest test dependencies to the build. Create test cases for app & api modules.
+
+Create a mysql 8.0.36 local database & setup the mysql server.
+
 ## Running via Docker
 
 To run Bookie via Docker, set the `DB_HOST` environment variable to `"mysql"` in the `.env` file. Then run the following command: `docker compose up --build`
