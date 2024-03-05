@@ -28,7 +28,7 @@ yarn dev (local dev server)
 
 ## Setup
 
-1. Clone the repository: `https://github.com/taurusilver7/insight-api`
+1. Clone the repository: `https://github.com/taurusilver7/insight`
 2. Copy the `.env.example` to `.env` and update the necessary variables `cp .env.example .env`
 3. Install dependencies & run migrations `yarn install && yarn migrate`
 4. Ready to boot the server with `yarn dev`
@@ -52,11 +52,11 @@ Create a development server script to watch src directory & run the server with 
 
 Optional - Add jest & supertest test dependencies to the build. Create test cases for app & api modules.
 
-Create a mysql 8.0.36 local database & setup the mysql server.
+Create a mysql 8.0.36 local database & setup the mysql server. Create a data-source config to connect the local database to the application.
 
 ## Running via Docker
 
-To run Bookie via Docker, set the `DB_HOST` environment variable to `"mysql"` in the `.env` file. Then run the following command: `docker compose up --build`
+To run Insight via Docker, set the `DB_HOST` environment variable to `"mysql"` in the `.env` file. Then run the following command: `docker compose up --build`
 
 his will build and run the Docker container for the app and the MySQL database. You can then access the app at `http://localhost:3000`.
 
