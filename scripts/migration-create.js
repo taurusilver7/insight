@@ -1,6 +1,7 @@
 #! /usr/bin/env node
 
-const yargs = require("yargs");
+// const yargs = require("yargs");
+import yargs from "yargs";
 
 const { execSync } = require("child_process");
 
