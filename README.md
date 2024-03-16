@@ -58,6 +58,10 @@ Create corresponding scripts to create/run/show/revert database migrations. Conf
 
 Create a new migration:create for authors table. Customize the table columns, types, and other characterstics with base mysql table syntax.
 
+Create a new CreateTable queryRunner in the migration to create a table with necessary columns with data fields. Create a dropTable queryRunner in the migration to delete the created table. Add a clause to create a new table only if there's no existing table with the same name in the database.
+
+Since the data fields keeps repeating in routes, controllers & entities for the tables, create constant variables t keep the changes to a singularity. Modify the routes, controller & entities with constant variables.
+
 ## Running via Docker
 
 To run Insight via Docker, set the `DB_HOST` environment variable to `"mysql"` in the `.env` file. Then run the following command: `docker compose up --build`
