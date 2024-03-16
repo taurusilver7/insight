@@ -1,9 +1,9 @@
 import express from "express";
+import { AuthorsController } from "../controllers/author";
 
 const router = express.Router();
+const authorController = new AuthorsController();
 
-router.get("/", (req, res) => {
-	res.status(200).json("Welcome to authors page!");
-});
+router.get("/", authorController.getAuthor);
 
 export default router;
