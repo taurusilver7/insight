@@ -5,6 +5,7 @@ import morgan from "morgan";
 import helmet from "helmet";
 
 import * as middleware from "./middleware";
+import mainRoute from "./routes/index";
 
 const app: Express = express();
 
@@ -20,6 +21,8 @@ app.get("/hello", (req, res) => {
 		message: "Hello World! 🦄🌈✨👋✨🌈🦄 ",
 	});
 });
+
+app.use("/api/v1", mainRoute);
 
 app.use(middleware.notFound);
 app.use(middleware.errorHandler);
