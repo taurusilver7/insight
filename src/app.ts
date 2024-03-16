@@ -4,6 +4,8 @@ import bodyParser from "body-parser";
 import morgan from "morgan";
 import helmet from "helmet";
 
+import * as middleware from "./middleware";
+
 const app: Express = express();
 
 app.use(cors());
@@ -18,5 +20,8 @@ app.get("/hello", (req, res) => {
 		message: "Hello World! 🦄🌈✨👋✨🌈🦄 ",
 	});
 });
+
+app.use(middleware.notFound);
+app.use(middleware.errorHandler);
 
 export default app;
