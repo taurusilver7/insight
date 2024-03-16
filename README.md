@@ -54,6 +54,10 @@ Optional - Add jest & supertest test dependencies to the build. Create test case
 
 Create a mysql 8.0.36 local database & setup the mysql server. Create a data-source config to connect the local database to the application.
 
+Create corresponding scripts to create/run/show/revert database migrations. Configure the migration-create path and corresponding cmd line arguments.
+
+Create a new migration:create for authors table. Customize the table columns, types, and other characterstics with base mysql table syntax.
+
 ## Running via Docker
 
 To run Insight via Docker, set the `DB_HOST` environment variable to `"mysql"` in the `.env` file. Then run the following command: `docker compose up --build`
