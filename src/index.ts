@@ -1,9 +1,10 @@
 import * as dotenv from "dotenv";
 import app from "./app";
 import { AppDataSource } from "./db/data-source";
+import "reflect-metadata";
 
 dotenv.config();
-const PORT = process.env.PORT || 3000;
+const PORT = normalizePort(process.env.PORT || 3000);
 
 AppDataSource.initialize()
 	.then(async () => {
@@ -14,3 +15,16 @@ AppDataSource.initialize()
 app.listen(PORT, () => {
 	console.log(`Server running on port: ${PORT}`);
 });
+
+function normalizePort(val: any) {
+	const port = parseInt(val, 10);
+
+	if (isNaN(port)) {
+		return val;
+	}
+
+	if (port >= 0) {
+		return port;
+	}
+	return false;
+}
