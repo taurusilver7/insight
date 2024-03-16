@@ -3,19 +3,6 @@ import app from "./app";
 import { AppDataSource } from "./db/data-source";
 import "reflect-metadata";
 
-dotenv.config();
-const PORT = normalizePort(process.env.PORT || 3000);
-
-AppDataSource.initialize()
-	.then(async () => {
-		console.log("Database connected successfully");
-	})
-	.catch((err) => console.error(err));
-
-app.listen(PORT, () => {
-	console.log(`Server running on port: ${PORT}`);
-});
-
 function normalizePort(val: any) {
 	const port = parseInt(val, 10);
 
@@ -28,3 +15,16 @@ function normalizePort(val: any) {
 	}
 	return false;
 }
+
+dotenv.config();
+const PORT = normalizePort(process.env.PORT || 3000);
+
+AppDataSource.initialize()
+	.then(async () => {
+		console.log("Database connected successfully");
+	})
+	.catch((err) => console.error(err));
+
+app.listen(PORT, () => {
+	console.log(`Server running on port: ${PORT}`);
+});
