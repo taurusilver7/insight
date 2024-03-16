@@ -27,10 +27,15 @@ export class CreateAuthorTable1709723051656 implements MigrationInterface {
 					},
 					{
 						name: "bio",
+						type: "text",
+						length: "255",
+						isNullable: true,
+					},
+					{
+						name: "image",
 						type: "varchar",
 						length: "255",
-						isNullable: false,
-						isUnique: true,
+						isNullable: true,
 					},
 					{
 						name: "createdAt",
