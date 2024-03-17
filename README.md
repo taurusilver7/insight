@@ -62,7 +62,9 @@ Create a new CreateTable queryRunner in the migration to create a table with nec
 
 Since the data fields keeps repeating in routes, controllers & entities for the tables, create constant variables t keep the changes to a singularity. Modify the routes, controller & entities with constant variables.
 
-Create a authorController class to create author-based methods to execute the author-related function in the routes.
+Create a authorController class to create author-based methods to execute the author-related function in the routes. Create a method to get all the authors, and filter the authors based on the input params.
+
+The getAuthor method throws an exception to their request when unmatched. Create a global exception handler to resolve unnecessary exceptions to handle.
 
 ## Running via Docker
 
