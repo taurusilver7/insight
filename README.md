@@ -62,6 +62,8 @@ Create a new CreateTable queryRunner in the migration to create a table with nec
 
 Since the data fields keeps repeating in routes, controllers & entities for the tables, create constant variables t keep the changes to a singularity. Modify the routes, controller & entities with constant variables.
 
+Create a authorController class to create author-based methods to execute the author-related function in the routes.
+
 ## Running via Docker
 
 To run Insight via Docker, set the `DB_HOST` environment variable to `"mysql"` in the `.env` file. Then run the following command: `docker compose up --build`
