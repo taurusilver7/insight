@@ -1,16 +1,13 @@
 import { Request, Response } from "express";
-import { AppDataSource } from "../db/data-source";
-import { Author } from "../entities/author";
+import { AppDataSource } from "@/db/data-source";
+import { Author } from "@/entities/author";
+import { ResponseUtil } from "@/utils/response";
 
 export class AuthorsController {
 	async getAuthors(req: Request, res: Response) {
 		const authors = await AppDataSource.getRepository(Author).find();
 
-		return res.status(200).json({
-			success: true,
-			message: "Fetched authors successfully",
-			data: authors,
-		});
+		return ResponseUtil.sendResponse(res, "Authors fetched!", authors);
 	}
 
 	async getAuthor(req: Request, res: Response) {
@@ -19,10 +16,10 @@ export class AuthorsController {
 		const author = await AppDataSource.getRepository(Author).findOneByOrFail({
 			id: Number(id),
 		});
-		return res.status(200).json({
-			success: true,
-			message: "Fetched author successfully",
-			data: author,
-		});
+		return ResponseUtil.sendResponse<Author>(
+			res,
+			"Author info fetched",
+			author
+		);
 	}
 }
