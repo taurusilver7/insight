@@ -1,7 +1,8 @@
 import { Request, Response } from "express";
-import { AppDataSource } from "@/db/data-source";
-import { Author } from "@/entities/author";
-import { ResponseUtil } from "@/utils/response";
+
+import { Author } from "../entities/author";
+import { ResponseUtil } from "../utils/response";
+import { AppDataSource } from "../db/data-source";
 
 export class AuthorsController {
 	async getAuthors(req: Request, res: Response) {
