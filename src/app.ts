@@ -1,4 +1,4 @@
-import express, { Express } from "express";
+import express, { Express, Request, Response } from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
 import morgan from "morgan";
@@ -16,15 +16,13 @@ app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.get("/hello", (req, res) => {
-	return res.status(200).json({
-		message: "Hello World! 🦄🌈✨👋✨🌈🦄 ",
-	});
-});
-
 app.use("/api/v1", mainRoute);
 
-app.use(middleware.notFound);
-app.use(middleware.errorHandler);
+app.use("*", (req: Request, res: Response) => {
+	res.status(404).json({
+		success: false,
+		message: "Invalid route!",
+	});
+});
 
 export default app;
