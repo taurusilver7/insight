@@ -21,4 +21,12 @@ export class AuthorsController {
     });
     return ResponseUtil.sendResponse<Author>(res, "Author info fetched", author);
   }
+  async createAuthor(req: Request, res: Response) {
+    const { id } = req.params;
+
+    const author = await AppDataSource.getRepository(Author).findOneByOrFail({
+      id: Number(id),
+    });
+    return ResponseUtil.sendResponse<Author>(res, "Author info fetched", author);
+  }
 }
