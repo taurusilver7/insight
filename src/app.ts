@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(morgan("dev"));
 app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/api/v1", mainRoute);
 
@@ -28,8 +28,13 @@ app.use("*", (req: Request, res: Response) => {
 
 // define a middleware function to handle errors
 app.use((err: any, req: Request, res: Response, next: NextFunction) => {
+  console.log(err);
   if (err instanceof EntityNotFoundError) {
-    return ResponseUtil.sendError(res, 404, err);
+    return ResponseUtil.sendError<Error>(res, 404, err);
+  }
+
+  if (err.message === "Invalid file type") {
+    return ResponseUtil.sendError<Error>(res, 422, err);
   }
 
   return res.status(500).json({
