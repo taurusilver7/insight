@@ -66,7 +66,7 @@ Create a authorController class to create author-based methods to execute the au
 
 The getAuthor method throws an exception to their request when unmatched. Create a global exception handler to resolve unnecessary exceptions to handle.
 
-Implement a pagination sequence in the author controller methods to get the fetched results in a page sequence.
+Implement an offset pagination sequence, an database function, for the authors list in the author controller to get the fetched results in a page sequence.
 
 ## Running via Docker
 
