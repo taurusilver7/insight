@@ -4,6 +4,8 @@ import { Author } from "../entities/author";
 import { ResponseUtil } from "../utils/response";
 import { AppDataSource } from "../db/data-source";
 import { Paginator } from "../db/pagination";
+import { CreateAuthorDTO } from "../dto/create-author";
+import { validate } from "class-validator";
 
 export class AuthorsController {
   async getAuthors(req: Request, res: Response) {
@@ -23,6 +25,15 @@ export class AuthorsController {
   }
   async createAuthor(req: Request, res: Response): Promise<Response> {
     const authorData = req.body;
+    authorData.image = req.file?.filename;
+
+    const dto = new CreateAuthorDTO();
+    Object.assign(dto, authorData);
+
+    const errors = await validate(dto);
+    if (errors.length > 0) {
+      return ResponseUtil.sendError(res, 422, errors);
+    }
 
     const repo = AppDataSource.getRepository(Author);
     const author = repo.create(authorData);
