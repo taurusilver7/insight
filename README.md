@@ -70,6 +70,8 @@ Implement an offset pagination sequence, an database function, for the authors l
 
 Add [multer](https://www.npmjs.com/package/multer), a node middleware for handling multipart/form-data, primarily used for uploading. The latest version has multiple discrepancies, unsuitable for mysql database. Add the depricated version@1.4.3
 
+Create an upload middleware, which checks/create a storage location, encrpyts the filename, apply filters to the filetype and upload the image to the storage.
+
 ## Running via Docker
 
 To run Insight via Docker, set the `DB_HOST` environment variable to `"mysql"` in the `.env` file. Then run the following command: `docker compose up --build`
