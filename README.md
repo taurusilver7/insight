@@ -6,11 +6,11 @@ It was built with Typescript, Express, TyepORM, Class Validators & JWT.
 
 ## Features
 
--  CRUD operations for books and authors
--  Authentication and authorization with JWT
--  Validation with Class Validator
--  Pagination support
--  Error handling
+- CRUD operations for books and authors
+- Authentication and authorization with JWT
+- Validation with Class Validator
+- Pagination support
+- Error handling
 
 ## Available Scripts
 
@@ -36,11 +36,11 @@ yarn dev (local dev server)
 
 ## Stack
 
--  Typescript
--  TypeORM
--  MySQL
--  JWT
--  Class Validator
+- Typescript
+- TypeORM
+- MySQL
+- JWT
+- Class Validator
 
 ## Build
 
@@ -65,6 +65,8 @@ Since the data fields keeps repeating in routes, controllers & entities for the 
 Create a authorController class to create author-based methods to execute the author-related function in the routes. Create a method to get all the authors, and filter the authors based on the input params.
 
 The getAuthor method throws an exception to their request when unmatched. Create a global exception handler to resolve unnecessary exceptions to handle.
+
+Implement a pagination sequence in the author controller methods to get the fetched results in a page sequence.
 
 ## Running via Docker
 
