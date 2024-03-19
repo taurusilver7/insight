@@ -3,12 +3,14 @@ import { Request, Response } from "express";
 import { Author } from "../entities/author";
 import { ResponseUtil } from "../utils/response";
 import { AppDataSource } from "../db/data-source";
+import { Paginator } from "../db/pagination";
 
 export class AuthorsController {
   async getAuthors(req: Request, res: Response) {
-    const authors = await AppDataSource.getRepository(Author).createQueryBuilder().orderBy("id", "DESC");
+    const builder = await AppDataSource.getRepository(Author).createQueryBuilder().orderBy("id", "DESC");
+    const { records: authors, paginationInfo } = await Paginator.paginate(builder, req);
 
-    return ResponseUtil.sendResponse(res, "Authors fetched!", authors, null);
+    return ResponseUtil.sendResponse(res, "Authors fetched!", authors, paginationInfo);
   }
 
   async getAuthor(req: Request, res: Response) {
