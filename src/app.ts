@@ -3,10 +3,8 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import morgan from "morgan";
 import helmet from "helmet";
-import { ResponseUtil } from "./utils/response";
+import { ErrorHandler } from "./http/middleware/error-handler";
 import mainRoute from "./routes/index";
-
-import { EntityNotFoundError } from "typeorm";
 
 const app: Express = express();
 
@@ -27,20 +25,6 @@ app.use("*", (req: Request, res: Response) => {
 });
 
 // define a middleware function to handle errors
-app.use((err: any, req: Request, res: Response, next: NextFunction) => {
-  console.log(err);
-  if (err instanceof EntityNotFoundError) {
-    return ResponseUtil.sendError<Error>(res, 404, err);
-  }
-
-  if (err.message === "Invalid file type") {
-    return ResponseUtil.sendError<Error>(res, 422, err);
-  }
-
-  return res.status(500).json({
-    success: false,
-    message: "Not Found!!",
-  });
-});
+app.use(ErrorHandler.handleError);
 
 export default app;
