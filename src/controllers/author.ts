@@ -4,7 +4,7 @@ import { Author } from "../entities/author";
 import { ResponseUtil } from "../utils/response";
 import { AppDataSource } from "../db/data-source";
 import { Paginator } from "../db/pagination";
-import { CreateAuthorDTO } from "../dto/create-author";
+import { CreateAuthorDTO, UpdateAuthorDTO } from "../dto/create-author";
 import { validate } from "class-validator";
 
 export class AuthorsController {
@@ -39,6 +39,42 @@ export class AuthorsController {
     const author = repo.create(authorData);
     await repo.save(author);
 
-    return ResponseUtil.sendResponse(res, "Author created successfully!", author, 200);
+    return ResponseUtil.sendResponse(res, "Author created successfully!", author);
+  }
+
+  async updateAuthor(req: Request, res: Response): Promise<Response> {
+    const { id } = req.params;
+    const authorData = req.body;
+
+    const dto = new UpdateAuthorDTO();
+    Object.assign(dto, authorData);
+
+    const errors = await validate(dto);
+    if (errors.length > 0) {
+      return ResponseUtil.sendError(res, 422, errors);
+    }
+
+    const repo = AppDataSource.getRepository(Author);
+
+    const author = await repo.findOneByOrFail({
+      id: Number(id),
+    });
+
+    repo.merge(author, authorData);
+    await repo.save(author);
+
+    return ResponseUtil.sendResponse(res, "Author updated", author);
+  }
+  async deleteAuthor(req: Request, res: Response): Promise<Response> {
+    const { id } = req.params;
+
+    const repo = AppDataSource.getRepository(Author);
+
+    const author = await repo.findOneByOrFail({
+      id: Number(id),
+    });
+    await repo.remove(author);
+
+    return ResponseUtil.sendResponse(res, "Author removed", null);
   }
 }
