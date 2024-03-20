@@ -72,6 +72,8 @@ Add [multer](https://www.npmjs.com/package/multer), a node middleware for handli
 
 Create an upload middleware, which checks/create a storage location, encrpyts the filename, apply filters to the filetype and upload the image to the storage.
 
+Create a author update controller function, with a validation dto for the update fields.
+
 ## Running via Docker
 
 To run Insight via Docker, set the `DB_HOST` environment variable to `"mysql"` in the `.env` file. Then run the following command: `docker compose up --build`
