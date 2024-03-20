@@ -72,7 +72,9 @@ Add [multer](https://www.npmjs.com/package/multer), a node middleware for handli
 
 Create an upload middleware, which checks/create a storage location, encrpyts the filename, apply filters to the filetype and upload the image to the storage.
 
-Create a author update controller function, with a validation dto for the update fields.
+Create a author update controller function, with a validation dto for the update fields. Add the controller to the author `put` route to update the author instance, instead of `patch`
+
+Create a controller function to delete a author row in the table. Create a corresponding route for delete method. 
 
 ## Running via Docker
 
