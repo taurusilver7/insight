@@ -1,6 +1,6 @@
 import * as dotenv from "dotenv";
 import { DataSource } from "typeorm";
-import { Author } from "../entities/author";
+import { Author } from "./entities/author";
 
 dotenv.config();
 
