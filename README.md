@@ -82,4 +82,3 @@ To run Insight via Docker, set the `DB_HOST` environment variable to `"mysql"` i
 
 his will build and run the Docker container for the app and the MySQL database. You can then access the app at `http://localhost:3000`.
 
-Make sure that you have Docker installed on your machine before running this command. You can download Docker
