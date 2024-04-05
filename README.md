@@ -2,7 +2,7 @@
 
 A Secured, CRUD, RESTful API to manage books, authors (bio) for the registered users. It could be used as an api for a library rental feature.
 
-It was built with Typescript, Express, TyepORM, Class Validators & JWT.
+Built with Typescript, Express, TyepORM, Class Validators & JWT.
 
 ## Features
 
@@ -74,7 +74,7 @@ Create an upload middleware, which checks/create a storage location, encrpyts th
 
 Create a author update controller function, with a validation dto for the update fields. Add the controller to the author `put` route to update the author instance, instead of `patch`
 
-Create a controller function to delete a author row in the table. Create a corresponding route for delete method. 
+Create a controller function to delete a author row in the table. Create a corresponding route for delete method.
 
 ## Running via Docker
 
