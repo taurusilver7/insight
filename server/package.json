@@ -5,12 +5,12 @@
 	"private": true,
 	"scripts": {
 		"dev": "nodemon index.js",
-		"start": "node index.js"
+		"start": "node index.js",
+		"test": "echo \"Error: no test specified \" & exit 1 "
 	},
 	"devDependencies": {
 		"nodemon": "^3.1.10"
 	},
-	"peerDependencies": {},
 	"dependencies": {
 		"@inngest/agent-kit": "^0.8.0",
 		"bcrypt": "^6.0.0",
