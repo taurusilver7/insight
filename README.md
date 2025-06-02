@@ -1,8 +1,37 @@
-# INSIGHT
+# INSIGHT | AI-ticket-Assistant
 
 A Full-stack AI based ticketing system, built with Inngest cron-jobs & Gemini AI.
 
+This project is a web application that uses AI to automatically categorize, prioritize, and assign support tickets to the most appropriate moderators.
+
+A smart ticket management system that uses AI to automatically categorize, prioritize, and assign support tickets to the most appropriate moderators.
+
 ## Features
+
+### AI-powered Ticket Processing
+
+-  Automatic ticket categorization
+-  Smart priority assignment
+-  Skill-based moderator matching
+-  AI-generated helpful notes for moderators
+
+### Smart Moderator Assignment
+
+-  Automatic matching of tickets to moderators based on skills
+-  Fallback to admin assignment if no matching moderator found
+-  Skill-based routing system.
+
+### User Management
+
+-  Role-based access control (User, Moderator, Admin)
+-  Skill management for moderators
+-  User authentication with JWT
+
+### Background Processing
+
+-  Event-driven architecture using Inngest
+-  Automated email notifications
+-  Asynchronous ticket processing
 
 ## Available Scripts
 
@@ -16,8 +45,9 @@ A Full-stack AI based ticketing system, built with Inngest cron-jobs & Gemini AI
 
 ## Stack
 
--  Typescript (optional)
+-  Node.js with Express
 -  Inngest
 -  MongoDB
 -  JWT
--  Gemini API
+-  Google Gemini API
+-  Nodemailer with Mailtrap
